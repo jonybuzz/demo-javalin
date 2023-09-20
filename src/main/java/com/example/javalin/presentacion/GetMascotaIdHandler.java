@@ -4,6 +4,11 @@ import com.example.javalin.modelo.Mascota;
 import com.example.javalin.persistencia.RepositorioMascotas;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
+import io.javalin.openapi.HttpMethod;
+import io.javalin.openapi.OpenApi;
+import io.javalin.openapi.OpenApiContent;
+import io.javalin.openapi.OpenApiParam;
+import io.javalin.openapi.OpenApiResponse;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
@@ -16,6 +21,15 @@ public class GetMascotaIdHandler implements Handler {
         this.repoMascotas = new RepositorioMascotas();
     }
 
+    @OpenApi(
+            path = "/api/mascotas/{id}",
+            methods = {HttpMethod.GET},
+            pathParams = @OpenApiParam(name = "id", description = "ID mascota a buscar", required = true, type = Integer.class)
+//            responses = {
+//                    @OpenApiResponse(status = "200", content = @OpenApiContent(from = Mascota.class)),
+//                    @OpenApiResponse(status = "404" )
+//            }
+    )
     @Override
     public void handle(@NotNull Context context) throws Exception {
 
@@ -29,5 +43,5 @@ public class GetMascotaIdHandler implements Handler {
             context.status(404);
         }
     }
-    
+
 }
