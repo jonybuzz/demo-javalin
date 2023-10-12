@@ -37,28 +37,4 @@ public class GetPerfilHandler implements Handler {
 
     }
 
-    //
-//    @GetMapping("/mis-datos") //usando sesion
-//    public ResponseEntity<MisDatos> obtenerMisDatos(@RequestHeader("Authorization") String idSesion) {
-//
-//        Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
-//
-////        Date fechaInicioSesion = (Date) atributosSesion.get("fechaInicio");
-//
-//        Dueño dueñoSesion = (Dueño) atributosSesion.get("dueño");
-//        System.out.println("Obteniendo datos de: " + dueñoSesion);
-//
-//        if (dueñoSesion == null) {
-//            return ResponseEntity.status(404).build();
-//        }
-//
-//        //lo que quiera hacer con el dueño
-//        MisDatos misDatos = new MisDatos();
-//        Dueño dueño = repoDueños.obtenerTodos().stream().filter(d -> d.getId() == dueñoSesion.getId()).findFirst().get();
-//        misDatos.setNombre(dueño.getNombre());
-//        misDatos.setMascotas(dueño.getMascotas());
-//        return ResponseEntity.status(200).body(misDatos);
-//
-//    }
-
 }

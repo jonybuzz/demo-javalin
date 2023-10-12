@@ -22,7 +22,7 @@ public class LoginHandler implements Handler {
 
         LoginRequest loginRequest = context.bodyAsClass(LoginRequest.class);
 
-        Dueño dueño = repoDueños.obtenerJose(); //hardcode: siempre loguea a Jose
+        Dueño dueño = repoDueños.obtenerJose(); //hardcode: siempre loguea a Jose, se puede ir a buscar a BD o plataformas de SSO
         System.out.println("Login: " + loginRequest);
         System.out.println("Login: " + dueño);
 

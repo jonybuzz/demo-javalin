@@ -21,7 +21,7 @@ public class PostMascotaHandler implements Handler {
         System.out.println("Creando mascota: " + bodyString);
         System.out.println(mascota);
         validarNuevaMascota(mascota);
-        context.status(201);
+        context.status(201).json(mascota);
     }
 
     private void validarNuevaMascota(Mascota mascota) {

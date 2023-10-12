@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div id="main-div">
+
+    <table class="table table-bordered table-striped">
+        {{#each listamascotas}}
+            <tr>
+                <td>{{nombre}}</td>
+                <td>{{raza}}</td>
+                <td>
+                    {{#if activa}}
+                        <button><a href="info-mascota.html?id={{id}}">Ver</a></button>
+                    {{else}}
+                        Inactiva
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+
+</div>
+
+<!--    <script>-->
+</body>
+</html>

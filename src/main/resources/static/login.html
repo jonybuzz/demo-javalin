@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div id="appVue">
+
+    <!--    INPUT TEXTO-->
+    <div class="search-box w-100 input-group dds-busqueda" id="el-buscador">
+        <input placeholder="username" v-model="username" type="text" id="username" class="w-100 h-100 form-control" value=""
+               style="min-height: 45px;">
+    </div>
+
+    <!--    SELECCIONABLE CON ID COMO VALOR-->
+    <select v-model="mascotaSeleccionada">
+        <option disabled value="">Seleccione un elemento</option>
+        <option v-for="mascota in mascotas" v-bind:value="mascota.id">{{mascota.nombre}} ({{mascota.raza}})</option>
+    </select>
+
+    <button class="btn btn-primary" v-on:click="login">Login</button>
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#appVue",
+        data: {
+            username: "",
+            mascotaSeleccionada: "",
+            mascotas: [],
+        },
+        methods: { //son sólo definiciones de funciones, que no se ejecutan por si solas
+            login: function () {
+                //Armar objeto request
+                var request = {
+                    usuario: this.username,
+                    password: 123,
+                    mascotaSeleccionada: this.mascotaSeleccionada
+                }
+                console.log(request)
+                if (request.mascotaSeleccionada == "") {
+                    alert("Debes seleccionar una mascota")
+                    return;
+                }
+                //POST al API REST
+                //luego puede ser una redirección o mostrar un mensaje
+            },
+            printAll: function (){
+
+            }
+        },
+        created() { //se ejecuta al inicio de la instancia Vue
+            fetch('http://localhost:8080/api/mascotas')
+                .then(response => response.json())
+                .then(data => {
+                    this.mascotas = data
+                })
+        }
+    })
+</script>
+</body>
+</html>
