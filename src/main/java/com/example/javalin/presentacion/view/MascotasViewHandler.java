@@ -20,7 +20,7 @@ public class MascotasViewHandler implements Handler {
         var mascotas = repoMascotas.obtenerTodas();
         var model = new HashMap<String, Object>();
         model.put("mascotas", mascotas);
-        context.render("index.hbs", model);
+        context.render("index.mustache", model);
     }
 
 }

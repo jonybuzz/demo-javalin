@@ -13,23 +13,27 @@
 <div id="main-div">
 
     <table class="table table-bordered table-striped">
-        {{#each listamascotas}}
+        {{#listamascotas}}   <!-- iteracion -->
             <tr>
                 <td>{{nombre}}</td>
                 <td>{{raza}}</td>
                 <td>
-                    {{#if activa}}
+                    {{#activa}}   <!-- if -->
                         <button><a href="info-mascota.html?id={{id}}">Ver</a></button>
-                    {{else}}
+                    {{/activa}}
+                    {{^activa}}   <!-- if negado, no hay else -->
                         Inactiva
-                    {{/if}}
+                    {{/activa}}
                 </td>
             </tr>
-        {{/each}}
+        {{/listamascotas}}
+
     </table>
+
+    <!-- para mas info sobre el templating: https://github.com/janl/mustache.js -->
 
 </div>
 
-<!--    <script>-->
+<!--  Aca van otros <script> -->
 </body>
 </html>

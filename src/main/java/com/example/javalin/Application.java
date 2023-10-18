@@ -4,6 +4,7 @@ import com.example.javalin.presentacion.GetMascotaIdHandler;
 import com.example.javalin.presentacion.GetMascotaImgHandler;
 import com.example.javalin.presentacion.GetMascotasHandler;
 import com.example.javalin.presentacion.GetPerfilSesionHandler;
+import com.example.javalin.presentacion.IndexHandler;
 import com.example.javalin.presentacion.LoginHandler;
 import com.example.javalin.presentacion.PostMascotaHandler;
 import io.javalin.Javalin;
@@ -30,6 +31,8 @@ public class Application {
         app.get("/api/mis-datos", new GetPerfilSesionHandler());
 
         app.post("/api/login", new LoginHandler());
+
+        app.get("/home", new IndexHandler());
 
 
         app.exception(IllegalArgumentException.class, (e, ctx) -> {

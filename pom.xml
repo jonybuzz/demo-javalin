@@ -29,12 +29,17 @@
             <artifactId>javalin</artifactId>
             <version>5.6.1</version>
         </dependency>
+        <dependency>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin-rendering</artifactId>
+            <version>5.6.1</version>
+        </dependency>
 
         <!--libreria de renderizado de templates web-->
         <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf</artifactId>
-            <version>3.1.2.RELEASE</version>
+            <groupId>com.github.spullara.mustache.java</groupId>
+            <artifactId>compiler</artifactId>
+            <version>0.9.7</version>
         </dependency>
 
 
