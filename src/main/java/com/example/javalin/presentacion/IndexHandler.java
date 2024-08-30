@@ -22,6 +22,7 @@ public class IndexHandler implements Handler {
         var mascotas = this.repoMascotas.obtenerTodas();
         Map<String, Object> model = new HashMap<>();
         model.put("listamascotas", mascotas);
+
         context.render("templates/index.mustache", model);
     }
 }

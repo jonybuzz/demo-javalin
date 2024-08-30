@@ -5,7 +5,9 @@
     <title>Mascotas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
@@ -15,11 +17,14 @@
     <table class="table table-bordered table-striped">
         {{#listamascotas}}   <!-- iteracion -->
             <tr>
+<!--
+            <tr class="{{^activa}} table-danger {{/activa}}">
+-->
                 <td>{{nombre}}</td>
                 <td>{{raza}}</td>
                 <td>
                     {{#activa}}   <!-- if -->
-                        <button><a href="info-mascota.html?id={{id}}">Ver</a></button>
+                        <button><a href="/info-mascota?id={{id}}">Ver</a></button>
                     {{/activa}}
                     {{^activa}}   <!-- if negado, no hay else -->
                         Inactiva

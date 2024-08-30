@@ -22,8 +22,9 @@ public class Application {
 
                 )
                 .get("/", ctx -> ctx.result("Hello World"))
-                .start(8080);
+                .start(8081);
 
+        // API REST
         app.get("/api/mascotas", new GetMascotasHandler());
         app.get("/api/mascotas/{id}", new GetMascotaIdHandler());
         app.get("/api/mascotas/{id}/imagen", new GetMascotaImgHandler());
@@ -32,7 +33,9 @@ public class Application {
 
         app.post("/api/login", new LoginHandler());
 
+        // VISTA
         app.get("/home", new IndexHandler());
+//        app.get("/info-mascota", new InfoMascotaHandler());
 
 
         app.exception(IllegalArgumentException.class, (e, ctx) -> {
