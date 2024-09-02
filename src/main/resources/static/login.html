@@ -36,6 +36,14 @@
             mascotas: [],
         },
         methods: { //son sólo definiciones de funciones, que no se ejecutan por si solas
+            created() { //se ejecuta al inicio de la instancia Vue
+                fetch('http://localhost:8080/api/mascotas')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.mascotas = data
+                    })
+            },
+
             login: function () {
                 //Armar objeto request
                 var request = {
@@ -55,13 +63,6 @@
 
             }
         },
-        created() { //se ejecuta al inicio de la instancia Vue
-            fetch('http://localhost:8080/api/mascotas')
-                .then(response => response.json())
-                .then(data => {
-                    this.mascotas = data
-                })
-        }
     })
 </script>
 </body>
